@@ -37,11 +37,22 @@ export default class App extends Component {
       )
     })
   }
+  handleUpdate = (new_info) => {
+    this.setState({
+      infos: this.state.infos.map(
+        info => (new_info.id === info.id) ? new_info : info
+      )
+    })
+  }
   render() {
     return (
       <div className="container">
         <PhoneForm onCreate={this.handleCreate} />
-        <PhoneInfoList infos={this.state.infos} onRemove={this.handleRemove} />
+        <PhoneInfoList
+          infos={this.state.infos}
+          onRemove={this.handleRemove}
+          onUpdate={this.handleUpdate}
+        />
       </div>
     )
   }
