@@ -30,11 +30,18 @@ export default class App extends Component {
       })
     })
   }
+  handleRemove = (id) => {
+    this.setState({
+      infos: this.state.infos.filter(
+        info => info.id !== id
+      )
+    })
+  }
   render() {
     return (
       <div className="container">
         <PhoneForm onCreate={this.handleCreate} />
-        <PhoneInfoList infos={this.state.infos} />
+        <PhoneInfoList infos={this.state.infos} onRemove={this.handleRemove} />
       </div>
     )
   }
