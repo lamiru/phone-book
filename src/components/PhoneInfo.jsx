@@ -32,9 +32,9 @@ export default class PhoneInfo extends Component {
     }
     if (this.state.editing) {
       return (
-        <div style={style}>
-          <div><input className="form-control input-sm" onChange={this.handleChange} value={name} name="name" /></div>
-          <div><input className="form-control input-sm" onChange={this.handleChange} value={phone} name="phone" /></div>
+        <div className="form-group" style={style}>
+          <div><input className="form-control form-control-sm" onChange={this.handleChange} value={name} name="name" /></div>
+          <div><input className="form-control form-control-sm" onChange={this.handleChange} value={phone} name="phone" /></div>
           <div className="float-right">
             <button onClick={this.handleUpdate} className="btn btn-sm btn-info">Save</button>
             <button onClick={this.handleRemove} className="btn btn-sm btn-danger">Delete</button>

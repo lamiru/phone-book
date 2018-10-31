@@ -23,9 +23,11 @@ export default class PhoneForm extends Component {
       <form onSubmit={this.handleSubmit}>
         <div className="form-group">
           <table className="table">
-            <col width="*" />
-            <col width="*" />
-            <col width="10%" />
+            <colgroup>
+              <col width="*" />
+              <col width="*" />
+              <col width="10%" />
+            </colgroup>
             <tbody>
               <tr>
                 <td>

@@ -21,7 +21,13 @@ export default class App extends Component {
         name: 'Bob',
         phone: '010-0000-0002'
       }
-    ]
+    ],
+    keyword: ''
+  }
+  handleChange = (e) => {
+    this.setState({
+      keyword: e.target.value
+    })
   }
   handleCreate = (info) => {
     this.setState({
@@ -45,11 +51,23 @@ export default class App extends Component {
     })
   }
   render() {
+    const { infos, keyword } = this.state
+    const filteredInfos = infos.filter(
+      info => info.name.toLowerCase().indexOf(keyword.toLowerCase()) !== -1
+    )
     return (
       <div className="container">
+        <div className="form-group p-2 m-0">
+          <input
+            className="form-control m-1"
+            placeholder="Search"
+            onChange={this.handleChange}
+            value={keyword}
+          />
+        </div>
         <PhoneForm onCreate={this.handleCreate} />
         <PhoneInfoList
-          infos={this.state.infos}
+          infos={filteredInfos}
           onRemove={this.handleRemove}
           onUpdate={this.handleUpdate}
         />
